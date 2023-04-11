@@ -18,6 +18,18 @@ filter: contrast(2);
   background-size: cover;
   background-repeat: no-repeat;
 }
+.right ul li:hover{
+
+  color: #5CEE9C;
+  display: inline-block;
+  padding: 0 10px;
+  text-decoration: none;
+
+}
+.right ul li{
+  transition: 0.5s ease;
+    box-sizing: border-box;
+}
 
 @media (max-width: 850px) {
 .right {

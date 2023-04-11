@@ -2,7 +2,7 @@
 font-family: 'Inter';
 
 }.homeContainer{
-background: linear-gradient(265.3deg, #5CEE9C 1.49%, #22FF83 44.59%, #54F49A 99.99%, #5CEE9C 100%);
+background-image: url("../../assets//group91.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -13,6 +13,8 @@ import Nav from "./components/Navbar/Nav";
 import Services from "./components/Services/Services";
 import Integrations from "./components/Integrations/Integrations";
 import Information from "./components/Information/Information";
+import Model from "./components/model/Model";
+import ModelViewer from "./components/model/ModelViewer";
 
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
               </div>
 
               <Footer />
+              <ModelViewer/>
           </div>
       </div>
   );

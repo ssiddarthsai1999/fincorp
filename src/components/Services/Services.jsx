@@ -1,5 +1,8 @@
 import React from 'react'
 import gold from "../../assets/gold.jpg"
+import Model from '../model/Model';
+import Room from "../../assets/Room.fbx"
+import Cottage from "../../assets/cottage.fbx";
 
 function Services() {
   return (
@@ -21,10 +24,9 @@ function Services() {
                       </p>
                   </div>
                   <div className="right w-[100%]  md:w-[50%] p-3 ">
-                      <img
+                      <Model
                           className="w-[400px] h-[400px] mx-auto"
-                          src={gold}
-                          alt=""
+                          modelPath="/path/to/my-model.fbx"
                       />
                   </div>
               </div>
@@ -42,10 +44,9 @@ function Services() {
                       </p>
                   </div>
                   <div className="right w-[100%]  md:w-[50%] md:pl-[100px] p-3   ">
-                      <img
+                      <Model
                           className="w-[400px] h-[400px] mx-auto"
-                          src={gold}
-                          alt=""
+                          modelPath="/path/to/my-model.fbx"
                       />
                   </div>
               </div>
@@ -63,10 +64,9 @@ function Services() {
                       </p>
                   </div>
                   <div className="right w-[100%]  md:w-[50%] ">
-                      <img
-                          className="w-[400px] h-[400px] mx-auto"
-                          src={gold}
-                          alt=""
+                      <Model
+                          className="w-[400px] h-[400px] mx-auto "
+                          modelPath={Cottage}
                       />
                   </div>
               </div>
