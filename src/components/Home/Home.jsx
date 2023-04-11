@@ -15,7 +15,7 @@ function Home() {
               </h2>
 
               <a href="https://fitgpt.netlify.app">
-                  <button className="mx-auto justify-center flex  border-2 border-black p-3 rounded-full mb-3  text-lg px-10 font-bold relative items-center align-middle ">
+                  <button className="buttontop mx-auto justify-center flex   p-3 rounded-full mb-3  text-lg px-10 font-bold relative items-center align-middle ">
                       Book a demo
                       <i
                           class="fa-solid fa-arrow-right"

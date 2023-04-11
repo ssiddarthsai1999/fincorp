@@ -32,3 +32,13 @@ border: 1px solid transparent;
   border: 1px solid #25D366;
   background-color: #3479f1;
 }
+.buttontops{
+  background-color: #5CEE9C;
+  color: rgb(0, 0, 0);
+  transition: 0.3s ease;
+}
+.buttontops:hover{
+    background-color:#0ec429;
+    color: rgb(0, 0, 0);
+
+}

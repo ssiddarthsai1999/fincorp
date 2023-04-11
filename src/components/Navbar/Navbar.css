@@ -18,3 +18,9 @@ filter: contrast(2);
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 850px) {
+.right {
+  display: none;
+}
+}
