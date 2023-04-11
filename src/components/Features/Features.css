@@ -1,0 +1,33 @@
+.servicesContainer{
+    padding: 40px;
+   
+
+}
+.servicesCard{
+
+}
+
+.card{
+	border-radius: 10px;
+   
+padding: 40px;
+cursor: pointer;
+width: fit-content;
+background-color: #1e1e21;
+border: 1px solid #2d2d30;
+    color: #a1a1aa;
+    transition: 0.5s ease-in;
+}
+.card:hover{
+  color: white;
+  border: 1px solid white;
+  background-color: #2e2e32;
+}
+.servicesContainer{
+
+    background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
+}

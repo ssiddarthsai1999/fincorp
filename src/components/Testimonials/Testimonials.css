@@ -1,0 +1,15 @@
+.testCard{
+    	border-radius: 20px;
+       color: #a1a1aa;
+    transition: 0.5s ease-in;
+    height: fit-content;
+padding: 60px;
+cursor: pointer;
+width: fit-content;
+border: 1px solid white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
