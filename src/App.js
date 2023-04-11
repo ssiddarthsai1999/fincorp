@@ -45,7 +45,7 @@ function App() {
               </div>
 
               <Footer />
-              <ModelViewer/>
+              
           </div>
       </div>
   );
