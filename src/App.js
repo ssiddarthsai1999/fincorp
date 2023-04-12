@@ -15,6 +15,7 @@ import Integrations from "./components/Integrations/Integrations";
 import Information from "./components/Information/Information";
 import Model from "./components/model/Model";
 import ModelViewer from "./components/model/ModelViewer";
+import MyComponent from "./components/model/MyComponent";
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
               </div>
 
               <Footer />
-              
+ 
           </div>
       </div>
   );

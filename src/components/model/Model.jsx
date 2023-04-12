@@ -1,8 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-
-
 
 function Model({ modelPath }) {
     const [loading, setLoading] = useState(true);
@@ -27,13 +25,19 @@ function Model({ modelPath }) {
                 camera.position.z = 5;
                 const scene = new THREE.Scene();
                 scene.add(object);
+
+                // Add lighting to the scene
+                const light = new THREE.PointLight(0xffffff, 1, 100);
+                light.position.set(0, 10, 10);
+                scene.add(light);
+
                 const animate = () => {
                     requestAnimationFrame(animate);
                     renderer.render(scene, camera);
                 };
                 animate();
             },
-            () => {},
+            undefined, // onProgress callback
             (err) => {
                 setLoading(false);
                 setError(true);
