@@ -1,12 +1,10 @@
 import React from "react";
-import gold from "../../assets/gold.jpg";
-import Model from "../model/Model";
-import Shiba from "../../assets/shiba/scene.gltf";
-import Room from "../../assets/Room.fbx";
-import Cottage from "../../assets/cottage.fbx";
 import agLogo from "../../assets/ag_logo.glb";
 import agLogo3 from "../../assets/ag_logo3.glb";
 import agLogo2 from "../../assets/ag_logo2.glb";
+import target from "../../assets/target.glb";
+import safe from "../../assets/safe.glb";
+import rocket from "../../assets/rocket.glb";
 import ThreeDModel from "../model/Model";
 
 function Services() {
@@ -39,7 +37,8 @@ function Services() {
           </div>
           <div className="right w-[100%]  md:w-[50%] p-3 ">
             <ThreeDModel
-              file={agLogo3}
+              file={target}
+              scale={2}
               className="w-[400px] h-[400px] mx-auto"
             />
           </div>
@@ -52,7 +51,8 @@ function Services() {
           </div>
           <div className="right w-[100%]  md:w-[50%] md:pl-[100px] p-3   ">
             <ThreeDModel
-              file={agLogo}
+              file={rocket}
+              scale={4}
               className="w-[400px] h-[400px] mx-auto"
             />
           </div>
@@ -65,8 +65,9 @@ function Services() {
           </div>
           <div className="right w-[100%]  md:w-[50%] ">
             <ThreeDModel
-              file={agLogo2}
+              file={safe}
               className="w-[400px] h-[400px] mx-auto"
+              scale={5}
             />
           </div>
         </div>

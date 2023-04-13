@@ -3,7 +3,7 @@ import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Suspense, useRef, useState, useEffect } from "react";
 
-const ThreeDModel = ({ className, file }) => {
+const ThreeDModel = ({ className, file, scale }) => {
   const Model = () => {
     const group = useRef();
     const [targetRotation, setTargetRotation] = useState([0, 0, 0]);
@@ -33,7 +33,7 @@ const ThreeDModel = ({ className, file }) => {
         // ref={group}
         rotation={currentRotation}
         position={[0, 1, 0]}
-        scale={[1, 1, 1]}
+        scale={[scale, scale, scale]}
       >
         <mesh>
           <primitive object={gltf.scene} />

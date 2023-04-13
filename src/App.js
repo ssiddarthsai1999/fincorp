@@ -25,7 +25,7 @@ function App() {
               <div className="md:mb-[80px] ">
                   <Nav />
               </div>
-              <div className="md:mb-[200px]">
+              <div className="md:mb-[100px]">
                   <Home />
               </div>
               <div>
