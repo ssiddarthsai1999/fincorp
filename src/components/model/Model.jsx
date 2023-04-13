@@ -1,74 +1,58 @@
-import React, { useRef, useState, useEffect } from "react";
-import * as THREE from "three";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Suspense, useRef, useState, useEffect } from "react";
 
-function Model({ modelPath }) {
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-    const canvasRef = useRef(null);
+const ThreeDModel = ({ className, file }) => {
+  const Model = () => {
+    const group = useRef();
+    const [targetRotation, setTargetRotation] = useState([0, 0, 0]);
+    const [currentRotation, setCurrentRotation] = useState([0, 0, 0]);
+
+    const gltf = useLoader(GLTFLoader, file);
+
+    useFrame(({ mouse }) => {
+      setTargetRotation([(mouse.y * -Math.PI) / 8, (mouse.x * Math.PI) / 8, 0]);
+    });
 
     useEffect(() => {
-        const loader = new FBXLoader();
-        loader.load(
-            modelPath,
-            (object) => {
-                setLoading(false);
-                const canvas = canvasRef.current;
-                const renderer = new THREE.WebGLRenderer({ canvas });
-                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-                const camera = new THREE.PerspectiveCamera(
-                    75,
-                    canvas.clientWidth / canvas.clientHeight,
-                    0.1,
-                    1000
-                );
-                camera.position.z = 5;
-                const scene = new THREE.Scene();
-                scene.add(object);
-
-                // Add lighting to the scene
-                const light = new THREE.PointLight(0xffffff, 1, 100);
-                light.position.set(0, 10, 10);
-                scene.add(light);
-
-                const animate = () => {
-                    requestAnimationFrame(animate);
-                    renderer.render(scene, camera);
-                };
-                animate();
-            },
-            undefined, // onProgress callback
-            (err) => {
-                setLoading(false);
-                setError(true);
-                console.error(err);
-            }
+      const updateRotation = () => {
+        setCurrentRotation((currentRotation) =>
+          currentRotation.map(
+            (value, index) => value + 0.3 * (targetRotation[index] - value)
+          )
         );
-    }, [modelPath]);
+      };
+
+      const frameId = requestAnimationFrame(updateRotation);
+      return () => cancelAnimationFrame(frameId);
+    }, [targetRotation]);
 
     return (
-        <div className="relative">
-            {loading && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white font-bold text-2xl">
-                        Loading...
-                    </div>
-                </div>
-            )}
-            {error && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-red-500 font-bold text-2xl ">
-                        Error loading model
-                    </div>
-                </div>
-            )}
-            <canvas
-                className="w-full h-full"
-                ref={canvasRef}
-                aria-label="3D Model"
-            />
-        </div>
+      <group
+        // ref={group}
+        rotation={currentRotation}
+        position={[0, 1, 0]}
+        scale={[1, 1, 1]}
+      >
+        <mesh>
+          <primitive object={gltf.scene} />
+        </mesh>
+      </group>
     );
-}
+  };
 
-export default Model;
+  return (
+    <div className={className}>
+      <Canvas>
+        <Suspense fallback={null}>
+          <Model />
+          {/* <Environment preset="apartment" blur={1} rotation={[20, 90, 20]} /> */}
+          <pointLight color={"#954ea4"} intensity={20} position={[0, 10, 10]} />
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+};
+
+export default ThreeDModel;
